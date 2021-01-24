@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+service MotionDetectionService {
+    rpc Analyze(MotionDetectionRequest) returns (MotionDetectionResponse) {}
+}
+
+message MotionDetectionRequest {
+    repeated bytes files = 1;
+    string file_format = 2;
+}
+
+message MotionDetectionResponse {
+    bool analyzed = 1;
+    repeated MotionDetectionFrame frames = 2;
+    string message = 3;
+}
+
+message MotionDetectionFrame {
+    repeated MotionDetection detections = 1;
+}
+
+message MotionDetection {
+    float xmin = 1;
+    float ymin = 2;
+    float xmax = 3;
+    float ymax = 4;
+}

@@ -1,0 +1,8 @@
+version: "3"
+services:
+    grpcservice:
+        image: motiondetector_grpc
+        ports:
+            - 5002:50051
+        volumes:
+            - /data/SSS.ExPalantir.VideoAnalyticsEngine.MotionDetector/logs:/GRPCService/logs
